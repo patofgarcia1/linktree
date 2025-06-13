@@ -1,0 +1,87 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: "Noto Sans", sans-serif;
+}
+
+#navbar {
+    display: inline-block;
+    width: 100%;
+    background-color: #005ABD;
+    text-align: center;
+    height: 7%;
+    vertical-align: top;
+}
+.barra {
+    display: inline;
+    font-family: "DynaPuff", system-ui;
+    color: aliceblue;
+    font-size: 25px;
+    padding: 5%;
+}
+main {
+    display: inline-block;
+    width: 100%;
+    height: 88%;
+    vertical-align: top;
+}
+
+aside {
+    display: inline-block;
+    width: 30%;
+    height: 100%;
+    background-color: #00BD27;
+    vertical-align: top;
+    color: white;
+    font-family: "DynaPuff", system-ui;
+    font-weight: 400;
+    text-align: left;
+    font-size: 25px;
+}
+iframe{
+    width: 90%;
+}
+
+#derecha {
+    display: inline-block;
+    width: 70%;
+    height: 100%;
+    background-color: #0096BD;
+    vertical-align: top;
+}
+
+footer {
+    display: inline-block;
+    width: 100%;
+    height: 7%;
+    background-color: #005ABD;
+    color: aliceblue;
+    text-align: center;
+}
+#f{
+    font-family: "Noto Sans", sans-serif;
+}
+
+h1{
+    text-align: center;
+    font-size: 32px;
+    font-family: "DynaPuff", system-ui;
+    color: aliceblue;
+}
+p{
+    font-family: "Paprika", cursive;
+    font-weight: bold;
+    font-size: 20px;
+    color: aliceblue;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+li{
+    padding: 1%;
+}
