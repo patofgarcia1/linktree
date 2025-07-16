@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menú de Restaurante</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <div class="sidebar" id="sidebar">
+    <ul>
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="../sobre-mi.html">Sobre mí</a></li>
+      <li><a href="../proyectos.html">Proyectos</a></li>
+      <li><a href="../habilidades.html">Habilidades</a></li>
+      <li><a href="../contacto.html">Contacto</a></li>
+      <li><a href="https://patofgarcia1.github.io/linktree/" target="_blank">Linktree</a></li>
+    </ul>
+  </div>
+
+  <nav class="main-nav">
+    <ul class="nav-links">
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="../sobre-mi.html">Sobre mí</a></li>
+      <li><a href="../proyectos.html">Proyectos</a></li>
+      <li><a href="../habilidades.html">Habilidades</a></li>
+      <li><a href="../contacto.html">Contacto</a></li>
+      <li><a href="https://patofgarcia1.github.io/linktree/" target="_blank">Linktree</a></li>
+    </ul>
+    <div class="logo-nombre">Patricio Garcia</div>
+  </nav>
+
+  <main>
+    <section class="seccion">
+      <h2>🍽️ Menú del Restaurante</h2>
+      <div id="menu-container" class="grid-menu"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-icons">
+      <a href="https://github.com/patofgarcia1" target="_blank"><img src="../img/github.svg" alt="GitHub" class="social-icon"></a>
+      <a href="https://www.instagram.com/patofgarcia/" target="_blank"><img src="../img/instagram.svg" alt="Instagram" class="social-icon"></a>
+      <a href="https://www.linkedin.com/in/patricio-federico-garcia-167419214/" target="_blank"><img src="../img/linkedin.svg" alt="LinkedIn" class="social-icon"></a>
+    </div>
+    <p class="copyright">© Patricio Federico Garcia - UADE - 2025</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const sidebar = document.getElementById('sidebar');
+      const logo = document.querySelector('.logo-nombre');
+      sidebar.classList.toggle('active');
+      logo.classList.toggle('hide-logo');
+    }
+
+    
+  </script>
+
+  <script>
+    function toggleMenu() {
+      const sidebar = document.getElementById('sidebar');
+      const logo = document.querySelector('.logo-nombre');
+      sidebar.classList.toggle('active');
+      logo.classList.toggle('hide-logo');
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch("productos.json")
+        .then(res => res.json())
+        .then(data => {
+          const container = document.getElementById("menu-container");
+          data.forEach(item => {
+            const div = document.createElement("div");
+            div.className = "menu-item card";
+            div.innerHTML = `
+              <h3>${item.nombre}</h3>
+              <p>${item.descripcion}</p>
+              <p><strong>Precio:</strong> $${item.precio}</p>
+            `;
+            container.appendChild(div);
+          });
+        })
+        .catch(error => console.error("Error al cargar el menú:", error));
+    });
+  </script>
+</body>
+</html>
+

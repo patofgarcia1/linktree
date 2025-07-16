@@ -1,0 +1,27 @@
+[
+  {
+    "nombre": "Hamburguesa cl\u00e1sica",
+    "descripcion": "Pan artesanal, carne vacuna, lechuga y tomate.",
+    "precio": 1500
+  },
+  {
+    "nombre": "Pizza margarita",
+    "descripcion": "Masa fina con muzzarella y albahaca fresca.",
+    "precio": 2000
+  },
+  {
+    "nombre": "Ensalada C\u00e9sar",
+    "descripcion": "Lechuga, pollo grillado, croutons y aderezo c\u00e9sar.",
+    "precio": 1800
+  },
+  {
+    "nombre": "Milanesa napolitana",
+    "descripcion": "Carne empanada con jam\u00f3n, queso y salsa de tomate.",
+    "precio": 2200
+  },
+  {
+    "nombre": "Milanesa a caballo",
+    "descripcion": "Carne empanada con huevos fritos.",
+    "precio": 2400
+  }
+]

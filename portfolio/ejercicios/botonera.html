@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Botonera de Sonidos</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <div class="sidebar" id="sidebar">
+    <ul>
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="../sobre-mi.html">Sobre mí</a></li>
+      <li><a href="../proyectos.html">Proyectos</a></li>
+      <li><a href="../habilidades.html">Habilidades</a></li>
+      <li><a href="../contacto.html">Contacto</a></li>
+      <li><a href="https://patofgarcia1.github.io/linktree/" target="_blank">Linktree</a></li>
+    </ul>
+  </div>
+
+  <nav class="main-nav">
+    <ul class="nav-links">
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="../sobre-mi.html">Sobre mí</a></li>
+      <li><a href="../proyectos.html">Proyectos</a></li>
+      <li><a href="../habilidades.html">Habilidades</a></li>
+      <li><a href="../contacto.html">Contacto</a></li>
+      <li><a href="https://patofgarcia1.github.io/linktree/" target="_blank">Linktree</a></li>
+    </ul>
+    <div class="logo-nombre">Patricio Garcia</div>
+  </nav>
+
+  <main>
+    <section class="seccion">
+  <h2>🎵 Botonera de Sonidos Musicales</h2>
+  <div class="cards botonera">
+    <button class="card" onclick="reproducirSonido('sonidos/acordeon.mp3')">
+      <img src="../img/acordeon.jpg" alt="Acordeon" class="img-proyecto">
+      Acordeon
+    </button>
+    <button class="card" onclick="reproducirSonido('sonidos/bongo.mp3')">
+      <img src="../img/bongo.jpg" alt="Bongo" class="img-proyecto">
+      Bongo
+    </button>
+    <button class="card" onclick="reproducirSonido('sonidos/flauta.mp3')">
+      <img src="../img/flauta.jpg" alt="Flauta" class="img-proyecto">
+      Flauta
+    </button>
+    <button class="card" onclick="reproducirSonido('sonidos/guiro.mp3')">
+      <img src="../img/guiro.jpg" alt="Guiro" class="img-proyecto">
+      Guiro
+    </button>
+    <button class="card" onclick="reproducirSonido('sonidos/guitarra.mp3')">
+      <img src="../img/guitarra.jpg" alt="Guitarra" class="img-proyecto">
+      Guitarra
+    </button>
+    <button class="card" onclick="reproducirSonido('sonidos/piano.mp3')">
+      <img src="../img/piano.jpg" alt="Piano" class="img-proyecto">
+      Piano
+    </button>
+  </div>
+</section>
+
+  </main>
+
+  <footer>
+    <div class="footer-icons">
+      <a href="https://github.com/patofgarcia1" target="_blank"><img src="../img/github.svg" alt="GitHub" class="social-icon"></a>
+      <a href="https://www.instagram.com/patofgarcia/" target="_blank"><img src="../img/instagram.svg" alt="Instagram" class="social-icon"></a>
+      <a href="https://www.linkedin.com/in/patricio-federico-garcia-167419214/" target="_blank"><img src="../img/linkedin.svg" alt="LinkedIn" class="social-icon"></a>
+    </div>
+    <p class="copyright">© Patricio Federico Garcia - UADE - 2025</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const sidebar = document.getElementById('sidebar');
+      const logo = document.querySelector('.logo-nombre');
+      sidebar.classList.toggle('active');
+      logo.classList.toggle('hide-logo');
+    }
+
+    function reproducirSonido(archivo) {
+      const audio = new Audio(archivo);
+      audio.play();
+    }
+  </script>
+</body>
+</html>

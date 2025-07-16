@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculadora</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    .calculadora-container {
+      max-width: 360px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: #f0f4f8;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .pantalla {
+      background: #1f2937;
+      color: white;
+      font-size: 2rem;
+      text-align: right;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      min-height: 60px;
+    }
+    .teclado {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+    .btn {
+      padding: 1rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 12px;
+      background-color: #e2e8f0;
+      transition: background 0.3s ease;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #cbd5e1;
+    }
+    .btn.operador {
+      background-color: #3b82f6;
+      color: white;
+    }
+    .btn.operador:hover {
+      background-color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <div class="sidebar" id="sidebar">
+    <ul>
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="../sobre-mi.html">Sobre mí</a></li>
+      <li><a href="../proyectos.html">Proyectos</a></li>
+      <li><a href="../habilidades.html">Habilidades</a></li>
+      <li><a href="../contacto.html">Contacto</a></li>
+      <li><a href="https://patofgarcia1.github.io/linktree/" target="_blank">Linktree</a></li>
+    </ul>
+  </div>
+
+  <header>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="sidebar" id="sidebar">
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="../sobre-mi.html">Sobre mí</a></li>
+        <li><a href="../proyectos.html">Proyectos</a></li>
+        <li><a href="../habilidades.html">Habilidades</a></li>
+        <li><a href="../contacto.html">Contacto</a></li>
+        <li><a href="https://patofgarcia1.github.io/linktree/" target="_blank">Linktree</a></li>
+      </ul>
+    </div>
+    <nav class="main-nav">
+      <ul class="nav-links">
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="../sobre-mi.html">Sobre mí</a></li>
+        <li><a href="../proyectos.html">Proyectos</a></li>
+        <li><a href="../habilidades.html">Habilidades</a></li>
+        <li><a href="../contacto.html">Contacto</a></li>
+        <li><a href="https://patofgarcia1.github.io/linktree/" target="_blank">Linktree</a></li>
+      </ul>
+      <div class="logo-nombre">Patricio Garcia</div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="seccion">
+      <h2>🧮 Calculadora</h2>
+      <div class="calculadora-container">
+        <div id="pantalla" class="pantalla">0</div>
+        <div class="teclado">
+          <button class="btn operador" onclick="limpiar()">C</button>
+          <button class="btn operador" onclick="porcentaje()">%</button>
+          <button class="btn operador" onclick="raiz()">√</button>
+          <button class="btn operador" onclick="operar('/')">÷</button>
+          <button class="btn" onclick="ingresar('7')">7</button>
+          <button class="btn" onclick="ingresar('8')">8</button>
+          <button class="btn" onclick="ingresar('9')">9</button>
+          <button class="btn operador" onclick="operar('*')">×</button>
+          <button class="btn" onclick="ingresar('4')">4</button>
+          <button class="btn" onclick="ingresar('5')">5</button>
+          <button class="btn" onclick="ingresar('6')">6</button>
+          <button class="btn operador" onclick="operar('-')">−</button>
+          <button class="btn" onclick="ingresar('1')">1</button>
+          <button class="btn" onclick="ingresar('2')">2</button>
+          <button class="btn" onclick="ingresar('3')">3</button>
+          <button class="btn operador" onclick="operar('+')">+</button>
+          <button class="btn" onclick="ingresar('0')">0</button>
+          <button class="btn" onclick="ingresar('.')">.</button>
+          <button class="btn operador" style="grid-column: span 2;" onclick="calcular()">=</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-icons">
+      <a href="https://github.com/patofgarcia1" target="_blank"><img src="../img/github.svg" alt="GitHub" class="social-icon"></a>
+      <a href="https://www.instagram.com/patofgarcia/" target="_blank"><img src="../img/instagram.svg" alt="Instagram" class="social-icon"></a>
+      <a href="https://www.linkedin.com/in/patricio-federico-garcia-167419214/" target="_blank"><img src="../img/linkedin.svg" alt="LinkedIn" class="social-icon"></a>
+    </div>
+    <p class="copyright">© Patricio Federico Garcia - UADE - 2025</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const sidebar = document.getElementById('sidebar');
+      const logo = document.querySelector('.logo-nombre');
+      sidebar.classList.toggle('active');
+      logo.classList.toggle('hide-logo');
+    }
+
+    let operacion = "";
+    let operador = "";
+
+    function ingresar(valor) {
+      const pantalla = document.getElementById("pantalla");
+      if (pantalla.innerText === "0") {
+        pantalla.innerText = valor;
+      } else {
+        pantalla.innerText += valor;
+      }
+    }
+
+    function operar(op) {
+      operacion = document.getElementById("pantalla").innerText;
+      document.getElementById("pantalla").innerText = "";
+      operador = op;
+    }
+
+    function calcular() {
+      if (operacion !== "") {
+        try {
+          const resultado = eval(operacion + operador + document.getElementById("pantalla").innerText);
+          document.getElementById("pantalla").innerText = resultado;
+          operacion = "";
+        } catch {
+          document.getElementById("pantalla").innerText = "Error";
+        }
+      }
+    }
+
+    function limpiar() {
+      document.getElementById("pantalla").innerText = "0";
+      operacion = "";
+    }
+
+    function porcentaje() {
+      const valor = parseFloat(document.getElementById("pantalla").innerText);
+      document.getElementById("pantalla").innerText = valor / 100;
+    }
+
+    function raiz() {
+      const valor = parseFloat(document.getElementById("pantalla").innerText);
+      document.getElementById("pantalla").innerText = Math.sqrt(valor);
+    }
+  </script>
+
+</body>
+</html>
+
