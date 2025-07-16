@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inicio | Patricio Garcia</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <div class="sidebar" id="sidebar">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="sobre-mi.html">Sobre mí</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
+      <li><a href="habilidades.html">Habilidades</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+<li><a href="https://patofgarcia1.github.io/linktree/" target="_blank">Linktree</a></li>
+    </ul>
+  </div>
+
+  
+
+<header>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <div class="sidebar" id="sidebar">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="sobre-mi.html">Sobre mí</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
+      <li><a href="habilidades.html">Habilidades</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+<li><a href="https://patofgarcia1.github.io/linktree/" target="_blank">Linktree</a></li>
+    </ul>
+  </div>
+  <nav class="main-nav">
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="sobre-mi.html">Sobre mí</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
+      <li><a href="habilidades.html">Habilidades</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+<li><a href="https://patofgarcia1.github.io/linktree/" target="_blank">Linktree</a></li>
+    </ul>
+    <div class="logo-nombre">Patricio Garcia</div>
+  </nav>
+</header>
+
+
+
+  <main class="hero" style="text-align: center;">
+    <div class="card hero-card" style="text-align: center;">
+      <img src="img/IMG_4144.jpg" alt="Foto de Patricio Garcia" style="width: 180px; border-radius: 50%; margin-bottom: 1rem;" />
+      <h1 class="nombre-impacto">Patricio Garcia</h1>
+      <h2>Futuro Ingeniero en Informática</h2>
+      <p>Formado en desarrollo de software, bases de datos, redes y análisis de sistemas. Me apasiona aplicar soluciones tecnológicas a problemas reales, investigar y aplicar tecnicas innovadoras</p>
+      <button onclick="location.href='sobre-mi.html'">Conocer más sobre mí</button>
+    </div>
+
+    <h3 style="text-align: center; margin-top: 3rem;">Mis conocimientos</h3>
+    <div class="tech-icons">
+      <div class="tech-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/2721/2721290.png" title="Bases de datos" />
+        <p>Bases de datos</p>
+      </div>
+      <div class="tech-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/3523/3523063.png" title="Redes" />
+        <p>Redes</p>
+      </div>
+      <div class="tech-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/888/888879.png" title="Programación" />
+        <p>Programación</p>
+      </div>
+    </div>
+  </main>
+
+  
+
+
+<footer>
+  <div class="footer-icons">
+    <a href="https://github.com/patofgarcia1" target="_blank"><img src="img/github.svg" alt="GitHub" class="social-icon"></a>
+    <a href="https://www.instagram.com/patofgarcia/" target="_blank"><img src="img/instagram.svg" alt="Instagram" class="social-icon"></a>
+    <a href="https://www.linkedin.com/in/patricio-federico-garcia-167419214/" target="_blank"><img src="img/linkedin.svg" alt="LinkedIn" class="social-icon"></a>
+  </div>
+  <p class="copyright">© Patricio Federico Garcia - UADE - 2025</p>
+</footer>
+
+
+
+
+  
+<script>
+function toggleMenu() {
+  const sidebar = document.getElementById('sidebar');
+  const logo = document.querySelector('.logo-nombre');
+  sidebar.classList.toggle('active');
+  logo.classList.toggle('hide-logo');
+}
+</script>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.tech-item').forEach(icon => {
+    icon.addEventListener('mouseenter', () => {
+      icon.style.filter = 'brightness(1.5)';
+    });
+    icon.addEventListener('mouseleave', () => {
+      icon.style.filter = 'brightness(1)';
+    });
+  });
+});
+</script>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const recuadro = document.querySelector(".hero-card");
+  if (recuadro) {
+    let eventoMostrado = false;
+
+    recuadro.addEventListener("click", function () {
+      if (eventoMostrado) return;
+      eventoMostrado = true;
+
+      const mensaje = document.createElement("div");
+      mensaje.innerHTML = `
+        <div class="mensaje-sorpresa">
+          <span class="cerrar-mensaje" aria-label="Cerrar ventana">&times;</span>
+          <p>
+            Activaste el evento sorpresa, avísame a través de la sección de contacto para darte tu premio.
+          </p>
+          <button onclick="window.location.href='contacto.html'">
+            Ir a Contacto
+          </button>
+        </div>
+      `;
+
+      document.body.appendChild(mensaje);
+
+      const btnCerrar = mensaje.querySelector(".cerrar-mensaje");
+      btnCerrar.addEventListener("click", () => {
+        mensaje.remove();
+      });
+    });
+  }
+});
+</script>
+
+
+
+
+</body>
+</html>

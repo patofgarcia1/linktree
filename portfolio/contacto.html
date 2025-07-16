@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contacto | Patricio Garcia</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("KZZQkt3Fh9Kk7UTl0");
+  })();
+</script>
+</head>
+<body>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <div class="sidebar" id="sidebar">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="sobre-mi.html">Sobre mí</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
+      <li><a href="habilidades.html">Habilidades</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+<li><a href="https://patofgarcia1.github.io/linktree/" target="_blank">Linktree</a></li>
+    </ul>
+  </div>
+  
+<header>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <div class="sidebar" id="sidebar">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="sobre-mi.html">Sobre mí</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
+      <li><a href="habilidades.html">Habilidades</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+<li><a href="https://patofgarcia1.github.io/linktree/" target="_blank">Linktree</a></li>
+    </ul>
+  </div>
+  <nav class="main-nav">
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="sobre-mi.html">Sobre mí</a></li>
+      <li><a href="proyectos.html">Proyectos</a></li>
+      <li><a href="habilidades.html">Habilidades</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+<li><a href="https://patofgarcia1.github.io/linktree/" target="_blank">Linktree</a></li>
+    </ul>
+    <div class="logo-nombre">Patricio Garcia</div>
+  </nav>
+</header>
+
+
+<main>
+  <section class="seccion">
+    <h2 style="text-align: center;">Este es el espacio para que puedas comunicarte conmigo 😀</h2>
+    <div class="card" style="max-width: 500px; margin: auto; background: #ffffff10; color: white;">
+      
+<h2 style="text-align: center;">📬 Contactame</h2>
+<form id="contact-form" style="max-width: 600px; margin: auto;">
+  <div style="display: flex; flex-direction: column; gap: 1rem;">
+    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required style="padding: 0.5rem;">
+    <input type="email" id="email" name="email" placeholder="Tu correo" required style="padding: 0.5rem;">
+    <textarea id="mensaje" name="mensaje" placeholder="Tu mensaje" rows="5" required style="padding: 0.5rem;"></textarea>
+    <button type="submit" style="padding: 0.7rem; background-color: #007BFF; color: white; border: none; cursor: pointer; font-weight: bold;">Enviar</button>
+  </div>
+</form>
+
+    </div>
+  </section>
+</main>
+
+  
+
+
+<footer>
+  <div class="footer-icons">
+    <a href="https://github.com/patofgarcia1" target="_blank"><img src="img/github.svg" alt="GitHub" class="social-icon"></a>
+    <a href="https://www.instagram.com/patofgarcia/" target="_blank"><img src="img/instagram.svg" alt="Instagram" class="social-icon"></a>
+    <a href="https://www.linkedin.com/in/patricio-federico-garcia-167419214/" target="_blank"><img src="img/linkedin.svg" alt="LinkedIn" class="social-icon"></a>
+  </div>
+  <p class="copyright">© Patricio Federico Garcia - UADE - 2025</p>
+</footer>
+
+
+
+  
+<script>
+function toggleMenu() {
+  const sidebar = document.getElementById('sidebar');
+  const logo = document.querySelector('.logo-nombre');
+  sidebar.classList.toggle('active');
+  logo.classList.toggle('hide-logo');
+}
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("contact-form");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById("nombre").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const mensaje = document.getElementById("mensaje").value.trim();
+
+      if (!nombre || !email || !mensaje) {
+        alert("Por favor, completá todos los campos.");
+        return;
+      }
+
+      const fechaHora = new Date().toLocaleString("es-AR");
+
+      emailjs.send("service_9rx4b8s", "template_c7dpgzq", {
+        from_name: nombre,
+        from_email: email,
+        message: mensaje,
+        time: fechaHora
+      }, "KZZQkt3Fh9Kk7UTl0")
+      .then(() => {
+        const confirmacion = document.createElement("div");
+        confirmacion.innerHTML = `
+          <div style="position: fixed; top: 30%; left: 50%; transform: translate(-50%, -50%);
+                      background-color: #28a745; color: white; padding: 2rem; border-radius: 10px;
+                      box-shadow: 0 0 10px rgba(0,0,0,0.4); z-index: 9999; text-align: center;">
+            <p style="margin: 0 0 1rem;">✅ ¡Mensaje enviado con éxito!</p>
+            <button onclick="this.parentElement.remove()" style="
+              background: white; color: #28a745; border: none; padding: 0.5rem 1rem;
+              font-weight: bold; border-radius: 5px; cursor: pointer;">Cerrar</button>
+          </div>
+        `;
+        document.body.appendChild(confirmacion);
+        form.reset();
+      })
+      .catch(() => {
+        alert("Hubo un error al enviar el mensaje. Intentá más tarde.");
+      });
+    });
+  }
+});
+</script>
+
+
+</body>
+</html>
